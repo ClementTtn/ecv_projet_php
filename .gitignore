@@ -1,0 +1,5 @@
+build.sh
+recreate.sh
+mysql-conf.d
+php-conf.d
+.idea
