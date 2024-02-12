@@ -1,6 +1,6 @@
 <?php
 
-$dbh = new PDO('mysql:host=mysql', "root", "root");
+$dbh = new PDO('mysql:host=mysql', "root", "mariadb_password");
 
 $migrations = scandir("./");
 
