@@ -24,6 +24,7 @@ class Orders
 
     public function setUserId($user_id) {
         $this->user_id = $user_id;
+        return $this;
     }
 
     public function getUserId()
@@ -33,6 +34,7 @@ class Orders
 
     public function setProductId($product_id) {
         $this->product_id = $product_id;
+        return $this;
     }
 
     public function getProductId()
@@ -42,6 +44,7 @@ class Orders
 
     public function setQuantity($quantity) {
         $this->quantity = $quantity;
+        return $this;
     }
 
     public function getQuantity()
@@ -49,8 +52,9 @@ class Orders
         return $this->quantity;
     }
 
-    public function setOrderDate($order_date) {
-        $this->order_date = $order_date;
+    public function setOrderDate() {
+        $this->order_date = new DateTime('now');
+        return $this;
     }
 
     public function getOrderDate()
@@ -88,5 +92,19 @@ class Orders
         } catch (PDOException $e) {
             throw new Error($e);
         }
+    }
+
+    public function save()
+    {
+        global $dsn, $db_user, $db_pass;
+        $dbh = new PDO($dsn, $db_user, $db_pass);
+
+        $stmt = $dbh->prepare("INSERT INTO orders (user_id, product_id, quantity, order_date) VALUES (:user_id, :product_id, :quantity, :order_date)");
+        $stmt->bindParam(':user_id', $this->user_id);
+        $stmt->bindParam(':product_id', $this->product_id);
+        $stmt->bindParam(':quantity', $this->quantity);
+        $stmt->bindParam(':order_date', $this->order_date->format('Y-m-d H:i:s'));
+
+        return $stmt->execute();
     }
 }

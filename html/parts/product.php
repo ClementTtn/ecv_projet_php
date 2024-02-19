@@ -13,7 +13,7 @@ $product = Product::getProduct($_GET['id']);
         <p><?php echo $product->getName() ?></p>
         <p><?php echo $product->getDescription() ?></p>
         <p><?php echo $product->getPrice() ?></p>
-        <form method="get">
+        <form action="../handlers/createOrders.php" method="post">
             <label for="quantity">Quantité :</label>
             <select name="quantity" id="quantity">
                 <?php
