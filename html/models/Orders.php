@@ -6,6 +6,7 @@ class Orders
     private $id;
     private $user_id;
     private $product_id;
+    private $quantity;
     private $order_date;
 
     public function __construct()
@@ -39,6 +40,15 @@ class Orders
         return $this->product_id;
     }
 
+    public function setQuantity($quantity) {
+        $this->quantity = $quantity;
+    }
+
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
+
     public function setOrderDate($order_date) {
         $this->order_date = $order_date;
     }
@@ -64,7 +74,7 @@ class Orders
         }, $resultArray);
     }
 
-    public static function getOrders($id)
+    public static function getOrder($id)
     {
         global $dsn, $db_user, $db_pass;
         $dbh = new PDO($dsn, $db_user, $db_pass);

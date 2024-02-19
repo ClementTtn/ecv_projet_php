@@ -3,7 +3,6 @@ session_start();
 if (!isset($_SESSION['userId'])) {
     header("Location: parts/login.php");
 }
-var_dump($_SESSION);
 ?>
 
 <!DOCTYPE html>
