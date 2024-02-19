@@ -13,10 +13,11 @@ $listProducts = Product::getListProduct();
 <?php else : ?>
     <?php foreach ($listProducts as $product) : ?>
         <article>
-            <p><?php echo $product['id'] ?></p>
             <p><?php echo $product['name'] ?></p>
-            <p><?php echo $product['description'] ?></p>
             <p><?php echo $product['price'] ?></p>
+            <a href="parts/product.php?id=<?php echo $product['id']; ?>">
+                <button>Détails</button>
+            </a>
         </article>
         <hr>
     <?php endforeach ?>
