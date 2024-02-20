@@ -7,6 +7,7 @@ class Product
     private $name;
     private $description;
     private $price;
+    private $img;
 
     public function __construct()
     {
@@ -46,6 +47,15 @@ class Product
     public function getPrice()
     {
         return $this->price;
+    }
+
+    public function setImg($img) {
+        $this->img = $img;
+    }
+
+    public function getImg()
+    {
+        return $this->img;
     }
 
     public function toString() {
