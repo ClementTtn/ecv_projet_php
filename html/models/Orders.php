@@ -66,11 +66,24 @@ class Orders
         return "Order id: '$this->id', User id: '$this->user_id', product id: '$this->product_id', order date: '$this->order_date'";
     }
 
-    public static function getListOrders()
+    public static function getListOrdersGlobal()
     {
         global $dsn, $db_user, $db_pass;
         $dbh = new PDO($dsn, $db_user, $db_pass);
         $stmt = $dbh->prepare("SELECT * FROM orders");
+        $stmt->execute();
+        $resultArray = $stmt->fetchAll();
+        return array_map(function ($item) {
+            return $item;
+        }, $resultArray);
+    }
+
+    public static function getListOrdersUser($user_id)
+    {
+        global $dsn, $db_user, $db_pass;
+        $dbh = new PDO($dsn, $db_user, $db_pass);
+        $stmt = $dbh->prepare("SELECT * FROM orders WHERE user_id = :user_id");
+        $stmt->bindParam(':user_id', $user_id);
         $stmt->execute();
         $resultArray = $stmt->fetchAll();
         return array_map(function ($item) {
