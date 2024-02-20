@@ -10,7 +10,10 @@ DELETE FROM product;
 ALTER TABLE product AUTO_INCREMENT = 1;
 
 INSERT INTO product(name, description, price, img) VALUES
-    ("Table", "Une table en bois.", 60.0, 'img/table.png'),
-    ("Chaise", "Une chaise en plastique.", 30.0, 'img/chaise.png'),
-    ("Tapis", "Un tapis en coton.", 95.0, 'img/tapis.png'),
-    ("Meuble télé", "Un meublé télé pour des grandes télés.", 153.0, 'img/meuble_tv.png')
+    ("Table", "Une table en bois.", 95.0, 'img/table.png'),
+    ("Chaise", "Une chaise en bois.", 30.0, 'img/chaise.png'),
+    ("Tapis", "Un tapis en coton.", 60.0, 'img/tapis.png'),
+    ("Meuble télé", "Un meublé télé pour des grandes télés.", 153.0, 'img/meuble_tv.png'),
+    ("Canapé", "Un canapé pour regarder la grande télé.", 470.0, 'img/canape.png'),
+    ("Lampe", "Une grande lampe pour mettre à côté du canapé.", 112.0, 'img/lampe.png'),
+    ("Plante", "Une plante pour mettre sur la table en bois.", 29.0, 'img/plante.png')
