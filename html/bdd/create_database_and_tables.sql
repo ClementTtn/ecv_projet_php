@@ -2,6 +2,11 @@ CREATE DATABASE IF NOT EXISTS projet_ecv;
 
 USE projet_ecv;
 
+DROP TABLE orders;
+DROP TABLE product;
+DROP TABLE user;
+
+
 CREATE TABLE user (
     id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,

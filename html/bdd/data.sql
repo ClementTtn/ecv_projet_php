@@ -9,8 +9,8 @@ INSERT INTO user(name, email, password) VALUES
 DELETE FROM product;
 ALTER TABLE product AUTO_INCREMENT = 1;
 
-INSERT INTO product(name, description, price) VALUES
-    ("Table", "Une table en bois.", 60.0),
-    ("Chaise", "Une chaise en plastique.", 30.0),
-    ("Tapis", "Un tapis en coton.", 95.0),
-    ("Meuble télé", "Un meublé télé pour des grandes télés.", 153.0)
+INSERT INTO product(name, description, price, img) VALUES
+    ("Table", "Une table en bois.", 60.0, 'img/table.png'),
+    ("Chaise", "Une chaise en plastique.", 30.0, 'img/chaise.png'),
+    ("Tapis", "Un tapis en coton.", 95.0, 'img/tapis.png'),
+    ("Meuble télé", "Un meublé télé pour des grandes télés.", 153.0, 'img/meuble_tv.png')
