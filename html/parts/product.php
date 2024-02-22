@@ -2,13 +2,17 @@
 require_once dirname(__FILE__) . '/header.php';
 require_once dirname(__FILE__) . '/../models/Product.php';
 
+// Récupération d'un produit à partir de l'id stocké dans l'URL en paramètre depuis index.php
 $product = Product::getProduct($_GET['id']);
 ?>
 
+<!-- Produit pas trouvé -> id incorrect -->
 <?php if (empty($product)) : ?>
     <p>Produit introuvable</p>
 
+<!-- Produit trouvé -->
 <?php else : ?>
+    <!-- Affichage du produit -->
     <h2><?php echo $product->getName() ?></h2>
     <article>
         <img src="../<?php echo $product->getImg() ?>" alt="<?php echo $product->getName() ?>">

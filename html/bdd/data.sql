@@ -1,14 +1,18 @@
+# Suppression des données existantes de user
 DELETE FROM user;
 ALTER TABLE user AUTO_INCREMENT = 1;
 
+# Insertion des données par défaut
 INSERT INTO user(name, email, password) VALUES
-    ("Clément Tutin", "clement.tutin@mail-ecv.fr", "$2y$10$9GU54ykukEd3gLtiZQllYOqWpUXZ089rfdtz4sHkWomu6ekDBCERy"),
-    ("Maxime Senecat", "maxime.senecat@mail-ecv.fr", "$2y$10$9gSLShNt1FOdjI6TK5aOV.MGDw9hxJHctOk9R8abVpq76iiP5ExJW");
+    ("Clément Tutin", "clement.tutin@mail-ecv.fr", "$2y$10$9GU54ykukEd3gLtiZQllYOqWpUXZ089rfdtz4sHkWomu6ekDBCERy"),     # Password -> toto
+    ("Maxime Senecat", "maxime.senecat@mail-ecv.fr", "$2y$10$9gSLShNt1FOdjI6TK5aOV.MGDw9hxJHctOk9R8abVpq76iiP5ExJW");   # Password -> vivelephp
 
 
+# Suppression des données existantes de product
 DELETE FROM product;
 ALTER TABLE product AUTO_INCREMENT = 1;
 
+# Insertion des données par défaut
 INSERT INTO product(name, description, price, img) VALUES
     ("Table", "Une table en bois.", 95.0, 'img/table.png'),
     ("Chaise", "Une chaise en bois.", 30.0, 'img/chaise.png'),

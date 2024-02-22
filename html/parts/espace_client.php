@@ -3,18 +3,23 @@ require_once dirname(__FILE__) . '/header.php';
 require_once dirname(__FILE__) . '/../models/Orders.php';
 require_once dirname(__FILE__) . '/../models/Product.php';
 
+// Récupération des commandes pour un client
 $listOrders = Orders::getListOrdersUser($_SESSION['userId']);
 ?>
 
+<!-- Affichage du nom du client connecté -->
 <h2>Espace client de <?php echo $_SESSION['name']; ?></h2>
 <h3>Historique de vos commandes</h3>
 
 <div class="listOrders">
+    <!-- Liste commandes vide -->
     <?php if (empty($listOrders)) : ?>
         <p>Vous n'avez effectué aucune commande</p>
 
+    <!-- Liste commandes pas vide -->
     <?php else : ?>
         <?php foreach ($listOrders as $order) : ?>
+            <!-- Affichage d'une commande -->
             <article>
                 <p>Commande n°<?php echo $order['id'] ?></p>
                 <small><?php echo date('d/m/Y', strtotime($order['order_date'])) ?></small>

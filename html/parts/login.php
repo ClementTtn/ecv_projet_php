@@ -1,5 +1,7 @@
 <?php
+// Lancement de la session
 session_start();
+// Si user connecté, redirection vers index.php
 if (isset($_SESSION['userId'])) {
     header("Location: ../index.php");
 }
@@ -9,22 +11,29 @@ require_once(dirname(__FILE__) . '/../config/db.php');
 global $dsn, $db_user, $db_pass;
 $dbh = new PDO($dsn, $db_user, $db_pass);
 
+// Requête BDD pour le login
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Données du formulaire
     $email = $_POST['email'];
     $password = $_POST['password'];
 
+    // Récupération du user à partir de l'email renseigné dans le form
     $stmt = $dbh->prepare("SELECT * FROM user WHERE email = :email");
     $stmt->bindParam(':email', $email);
     $stmt->execute();
 
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
+    // Comparaison entre le password du form et celui stocké en BDD
     if ($user && password_verify($password, $user['password'])) {
+        // Si comparaison est OK -> mise en place des variables de la session
         $_SESSION['userId'] = $user['id'];
         $_SESSION['name'] = $user['name'];
         $_SESSION['email'] = $user['email'];
+        // Redirection vers index.php
         header("Location: ../index.php");
     } else {
+        // Comparaison pas OK -> message d'erreur
         $error_message = "Identifiants incorrects";
     }
 }
@@ -39,12 +48,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </head>
     <body>
         <h1>Connexion</h1>
-        <?php
-        if (isset($error_message)) {
-            echo "<p style='color: red;'>$error_message</p>";
-        }
-        ?>
         <form method="post">
+            <!-- Affichage du message d'erreur du login -->
+            <?php
+            if (isset($error_message)) {
+                echo "<p style='color: red;'>$error_message</p>";
+            }
+            ?>
             <p>
                 <label for="email">Email :</label>
                 <input type="text" name="email" required>

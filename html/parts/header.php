@@ -1,5 +1,9 @@
 <?php
+// Header.php appelé dans chaque fichier sauf login.php
+
+// Lancement de la session
 session_start();
+// Si pas de user connecté -> redirection vers login.php
 if (!isset($_SESSION['userId'])) {
     header("Location: /parts/login.php");
 }

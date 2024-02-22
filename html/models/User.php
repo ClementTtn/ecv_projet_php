@@ -52,6 +52,7 @@ class User
         return "User id: '$this->id', name: '$this->name', email: '$this->email'";
     }
 
+    // Fonction qui récupère un user à partir de son id
     public static function getUser($id)
     {
         global $dsn, $db_user, $db_pass;

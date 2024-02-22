@@ -66,6 +66,7 @@ class Orders
         return "Order id: '$this->id', User id: '$this->user_id', product id: '$this->product_id', order date: '$this->order_date'";
     }
 
+    // Fonction qui récupère toutes les commandes
     public static function getListOrdersGlobal()
     {
         global $dsn, $db_user, $db_pass;
@@ -78,6 +79,7 @@ class Orders
         }, $resultArray);
     }
 
+    // Fonction qui récupère les commandes d'un user
     public static function getListOrdersUser($user_id)
     {
         global $dsn, $db_user, $db_pass;
@@ -91,6 +93,7 @@ class Orders
         }, $resultArray);
     }
 
+    // Fonction qui récupère une commande à partir de son id
     public static function getOrder($id)
     {
         global $dsn, $db_user, $db_pass;
@@ -107,6 +110,7 @@ class Orders
         }
     }
 
+    // Fonction qui enregistre une nouvelle commande
     public function save()
     {
         global $dsn, $db_user, $db_pass;

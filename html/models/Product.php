@@ -62,6 +62,7 @@ class Product
         return "Product id: '$this->id', name: '$this->name', description: '$this->description', price: '$this->price'";
     }
 
+    // Fonction qui récupère l'ensemble des produits
     public static function getListProduct()
     {
         global $dsn, $db_user, $db_pass;
@@ -74,6 +75,7 @@ class Product
         }, $resultArray);
     }
 
+    // Fonction qui récupère un produit à partir de son id
     public static function getProduct($id)
     {
         global $dsn, $db_user, $db_pass;
