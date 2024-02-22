@@ -1,3 +1,7 @@
+# Utilisation de la BDD
+USE projet_ecv;
+
+
 # Suppression des données existantes de user
 DELETE FROM user;
 ALTER TABLE user AUTO_INCREMENT = 1;
