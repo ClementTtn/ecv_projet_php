@@ -36,10 +36,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Login</title>
-        <link rel="stylesheet" href="../styles/styles.css">
     </head>
     <body>
-        <h2>Connexion</h2>
+        <h1>Connexion</h1>
         <?php
         if (isset($error_message)) {
             echo "<p style='color: red;'>$error_message</p>";
@@ -58,3 +57,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
     </body>
 </html>
+
+<style>
+    * {
+        font-family: sans-serif !important;
+    }
+
+    html {
+        padding: 2rem 3rem;
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+    }
+
+    form {
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 16px;
+        box-sizing: border-box;
+        border: 1px solid lightgrey;
+        border-radius: 4px;
+    }
+</style>
