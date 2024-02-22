@@ -18,8 +18,8 @@ if (!isset($_SESSION['userId'])) {
             <nav>
                 <ul>
                     <li><a href="/index.php">Accueil</a></li>
-                    <li><a href="parts/espace_client.php">Espace client</a></li>
-                    <li><a href="parts/logout.php">Déconnexion</a></li>
+                    <li><a href="/parts/espace_client.php">Espace client</a></li>
+                    <li><a href="/parts/logout.php">Déconnexion</a></li>
                 </ul>
                 <p>Bonjour <?php echo $_SESSION['name']; ?></p>
             </nav>

@@ -2,8 +2,8 @@ DELETE FROM user;
 ALTER TABLE user AUTO_INCREMENT = 1;
 
 INSERT INTO user(name, email, password) VALUES
-    ("Clément Tutin", "clement.tutin@mail-ecv.fr", "31f7a65e315586ac198bd798b6629ce4903d0899476d5741a9f32e2e521b6a66"),
-    ("Maxime Senecat", "maxime.senecat@mail-ecv.fr", "96b4d8a57cf4d76ee047e308c61a493900ebc954c5771b544448dbd683bead69");
+    ("Clément Tutin", "clement.tutin@mail-ecv.fr", "$2y$10$9GU54ykukEd3gLtiZQllYOqWpUXZ089rfdtz4sHkWomu6ekDBCERy"),
+    ("Maxime Senecat", "maxime.senecat@mail-ecv.fr", "$2y$10$9gSLShNt1FOdjI6TK5aOV.MGDw9hxJHctOk9R8abVpq76iiP5ExJW");
 
 
 DELETE FROM product;
